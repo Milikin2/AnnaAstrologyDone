@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20250221194834">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap&_v=20250221194834"
+		rel="stylesheet">
+</head>
+
+<body>
+	<div class="wrapper home">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__body">
+					<nav class="header__nav">
+						<a href="#services" class="header__nav-link nav__link">my services</a>
+						<a href="#feedback" class="header__nav-link nav__link">feedback</a>
+						<div class="header__nav-logo">
+							<img src="img/logo.svg" alt="">
+						</div>
+						<a href="#offer" class="header__nav-link nav__link">special offer</a>
+						<a href="#faq" class="header__nav-link nav__link">faq</a>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="page">
+			<section class="intro">
+				<div class="intro__container">
+					<div class="intro__body">
+						<div class="intro__title"><img src="img/star.svg" alt="">You deserve better, you just have to
+							listen to the stars</div>
+						<div class="intro__suptitle section__suptitle">Learn to influence your destiny and life.
+							Literally from the first lesson you will be able to understand what fate has
+							given you and how you can change it!</div>
+						<div class="intro__preview">
+							<div class="intro__preview__controls">
+								<button class="intro__preview__controls-play" id="playPauseButton"
+									onclick="togglePlayPause()">
+									<svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+										viewBox="0 0 24 24">
+										<path d="M8 5v14l11-7z" />
+									</svg>
+									<svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+										viewBox="0 0 24 24">
+										<path d="M6 19h4V5H6zm8-14v14h4V5z" />
+									</svg>
+								</button>
+							</div>
+							<button class="intro__preview__controls-sound" onclick="toggleSound()"">
+								<img src=" img/off.svg" id="offIcon" alt="">
+								<img src="img/on.svg" style="display: none;" id='onIcon' alt="">
+							</button>
+							<video id="myVideo" autoplay muted>
+								<source src="img/preview.mp4" type="video/mp4">
+							</video>
+						</div>
+						<script>
+							var video = document.getElementById("myVideo");
+							var playPauseButton = document.getElementById("playPauseButton");
+							var playIcon = document.getElementById("playIcon");
+							var pauseIcon = document.getElementById("pauseIcon");
+							var offIcon = document.getElementById("offIcon");
+							var onIcon = document.getElementById("onIcon");
+							const videoContainer = document.querySelector('.intro__preview')
+
+							// Функция для воспроизведения/паузы
+							function togglePlayPause() {
+								if (video.paused || video.ended) {
+									video.play();
+									playIcon.style.opacity = "0"; // Плавное скрытие иконки Play
+									playIcon.style.transform = "scale(0.8)"; // Уменьшение иконки Play
+
+									pauseIcon.style.opacity = "1"; // Плавное появление иконки Pause
+									pauseIcon.style.visibility = "visible"; // Сделать иконку Pause видимой
+									pauseIcon.style.transform = "scale(1)"; // Восстановление размера иконки Pause
+									pauseIcon.style.display = "block"; // Восстановление размера иконки Pause
+								} else {
+									video.pause();
+									playIcon.style.opacity = "1"; // Плавное появление иконки Play
+									playIcon.style.transform = "scale(1)"; // Восстановление размера иконки Play
+
+									pauseIcon.style.opacity = "0"; // Плавное скрытие иконки Pause
+									pauseIcon.style.visibility = "hidden"; // Скрыть иконку Pause
+									pauseIcon.style.transform = "scale(0.8)"; // Уменьшение иконки Pause
+								}
+							}
+
+							function toggleSound() {
+								if (video.muted) {
+									video.muted = false;
+									offIcon.style.opacity = "0"; // Плавное скрытие иконки Play
+									offIcon.style.transform = "scale(0.8)"; // Уменьшение иконки Play
+									offIcon.style.display = "none"; // Уменьшение иконки Play
+
+									onIcon.style.opacity = "1"; // Плавное появление иконки Pause
+									onIcon.style.visibility = "visible"; // Сделать иконку Pause видимой
+									onIcon.style.transform = "scale(1)"; // Восстановление размера иконки Pause
+									onIcon.style.display = "block"; // Восстановление размера иконки Pause
+								} else {
+									video.muted = true;
+									offIcon.style.opacity = "1"; // Плавное появление иконки Play
+									offIcon.style.transform = "scale(1)"; // Восстановление размера иконки Play
+									offIcon.style.display = "block"; // Уменьшение иконки Play
+
+									onIcon.style.opacity = "0"; // Плавное скрытие иконки Pause
+									onIcon.style.visibility = "hidden"; // Скрыть иконку Pause
+									onIcon.style.transform = "scale(0.8)"; // Уменьшение иконки Pause
+									onIcon.style.display = "none"; // Восстановление размера иконки Pause
+								}
+							}
+							videoContainer.addEventListener('click', function () {
+								if (window.innerWidth <= 768) { // Проверка для мобильных устройств
+									this.classList.add('clicked'); // Переключаем класс для показа иконки
+
+									// Убираем класс 'clicked' через 3 секунды
+									setTimeout(function () {
+										videoContainer.classList.remove('clicked');
+									}, 3000); // 3000 миллисекунд = 3 секунды
+								}
+							});
+							// document.addEventListener("DOMContentLoaded", function () {
+							// 	setTimeout(function () {
+							// 		video.muted = false; // Убираем muted
+							// 	}, 3000); // 1000 миллисекунд = 1 секунда
+							// })
+						</script>
+						<!-- <div class="intro__adv">
+							<div class="intro__adv-item intro__adv-1">
+								<div class="intro__adv-title">2 mm</div>
+								<div class="intro__adv-text">followers on all social networks</div>
+							</div>
+							<div class="intro__adv-item intro__adv-2">
+								<div class="intro__adv-title">7 years</div>
+								<div class="intro__adv-text">working with the stars and science</div>
+							</div>
+							<div class="intro__adv-item intro__adv-3">
+								<div class="intro__adv-title">8.000</div>
+								<div class="intro__adv-text">Women who have explored and changed their lives</div>
+							</div>
+						</div> -->
+						<a href="./services.html" class="intro__link button__style button__text">reveal your destiny</a>
+					</div>
+				</div>
+				<img class="intro__bg" src="img/bg__hm.png" alt="">
+				<img class="intro__bg intro__bg-mob" src="img/bg__hm__mob.png" alt="">
+			</section>
+			<section class="labels">
+				<div class="labels__container">
+					<div class="labels__body">
+						<div class="labels__list">
+							<div class="labels__list-item">
+								<img src="img/oxford.png" alt="">
+							</div>
+							<div class="labels__list-item">
+								<img src="img/meta.png" alt="">
+							</div>
+							<div class="labels__list-item">
+								<img src="img/course.png" alt="">
+							</div>
+							<div class="labels__list-item">
+								<img src="img/udemy.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="services" class="lost">
+				<div class="lost__container">
+					<div class="lost__body">
+						<div class="intro__title">Welcome to Our Astrology Services</div>
+						<div class="intro__suptitle section__suptitle"> Unlock the Universe’s Secrets – Personalized
+							Guidance Awaits You! </div>
+						<div class="intro__services-text">Choose the course you want here ↓</div>
+						<div class="intro__services">
+							<div class="intro__services-buttons">
+								<div data-service="starter"
+									class="intro__services-button intro__services-button-active">
+									Astro Starter <br> Bundle
+								</div>
+								<div data-service="guide" class="intro__services-button">
+									Astrology <br> Compatibility Guide
+								</div>
+								<div data-service="roadmap" class="intro__services-button">
+									Personal Astro <br> Roadmap
+								</div>
+								<div data-service="horoscope" class="intro__services-button">
+									Weekly & Monthly Horoscope <br> Subscription
+								</div>
+								<div data-service="blueprint" class="intro__services-button">
+									Master Astrology <br> Blueprint
+								</div>
+								<div data-service="vip" class="intro__services-button">
+									VIP Astrology Consultation <br>(1-on-1 Session)
+								</div>
+							</div>
+							<div class="intro__services-prev">
+								<div class="intro__services-photo" data-da=".intro__services-info, 780">
+									<img data-photo="starter" src="img/service1.png" alt="">
+									<img data-photo="guide" src="img/service2.png" alt="">
+									<img data-photo="roadmap" src="img/service3.png" alt="">
+									<img data-photo="horoscope" src="img/service4.png" alt="">
+									<img data-photo="blueprint" src="img/service5.png" alt="">
+									<img data-photo="vip" src="img/service6.png" alt="">
+									<img class="intro__services-photo-unique" src="img/unique.svg" alt="">
+								</div>
+								<div class="intro__services-info">
+									<div class="intro__services-rating">
+										Estimates on resources
+										<div class="intro__services-rating-stars">
+											<img src="img/rating.svg" alt="">
+											<img src="img/rating.svg" alt="">
+											<img src="img/rating.svg" alt="">
+											<img src="img/rating.svg" alt="">
+											<img src="img/rating.svg" alt="">
+										</div>
+									</div>
+									<div class="intro__services-icons">
+										<img src="img/service1.svg" alt="">
+										<img src="img/service2.svg" alt="">
+										<img src="img/service3.svg" alt="">
+										<img src="img/service4.svg" alt="">
+										<img src="img/service5.svg" alt="">
+									</div>
+									<div class="intro__services-title">
+										<span data-title="starter">Astro Starter Bundle</span>
+										<span data-title="guide">Astrology Compatibility Guide</span>
+										<span data-title="roadmap">Personal Astro Roadmap</span>
+										<span data-title="horoscope">Weekly & Monthly Horoscope Subscription</span>
+										<span data-title="blueprint">Master Astrology Blueprint</span>
+										<span data-title="vip">VIP Astrology Consultation (1-on-1 Session)</span>
+									</div>
+									<div class="intro__services-descr">
+										<span data-descr="starter">Quickly learn astrology with mini lessons, a
+											personalized monthly horoscope, and answers to 3 key birth chart
+											questions</span>
+										<span data-descr="guide">Decode love, friendships, and business relationships
+											with a detailed zodiac compatibility guide.</span>
+										<span data-descr="roadmap">A personalized 3, 6, or 12-month forecast revealing
+											key life events and opportunities</span>
+										<span data-descr="horoscope">Receive a personal horoscope every week or month,
+											tailored to your birth chart</span>
+										<span data-descr="blueprint">A step-by-step 14-video course taking you from
+											astrology beginner to expert.</span>
+										<span data-descr="vip">Exclusive private session covering career, love, and
+											financial astrology insights.</span>
+									</div>
+									<a href="#" class="intro__services-link button__style button__text">
+										<span data-link="starter">LeARN MORE</span>
+										<span data-link="guide">GET YOU GuIDE</span>
+										<span data-link="roadmap">SEE YOUR FUTURE</span>
+										<span data-link="horoscope">SUBSCRIBE NOW</span>
+										<span data-link="blueprint">START LEARNING</span>
+										<span data-link="vip">BOOK YOUR SESSION</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- <section class="need">
+				<div class="need__container">
+					<div class="need__body">
+						<div class="need__title section__title">I Will Teach You</div>
+						<div class="need__list">
+							<div class="need__list-item">
+								<div class="need__list-item-photo">
+									<img src="img/why1__hm.svg" alt="">
+								</div>
+								<div class="need__list-item-title item__title">Inner Clarity</div>
+								<div class="need__list-item-text item__text">See how astrology can explain your
+									connections</div>
+							</div>
+							<div class="need__list-item">
+								<div class="need__list-item-photo">
+									<img src="img/why2__hm.svg" alt="">
+								</div>
+								<div class="need__list-item-title item__title">Cosmic Alignment</div>
+								<div class="need__list-item-text item__text">Learn which zodiac signs align best with
+									yours</div>
+							</div>
+							<div class="need__list-item">
+								<div class="need__list-item-photo">
+									<img src="img/why3__hm.svg" alt="">
+								</div>
+								<div class="need__list-item-title item__title">Astrological Wisdom</div>
+								<div class="need__list-item-text item__text">Discover ways to strengthen relationships
+								</div>
+							</div>
+							<div class="need__list-item">
+								<div class="need__list-item-photo">
+									<img src="img/why4__hm.svg" alt="">
+								</div>
+								<div class="need__list-item-title item__title">Mastering Planetary Influence</div>
+								<div class="need__list-item-text item__text">Learn which zodiac signs align best with
+									yours</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="include">
+				<div class="include__container">
+					<div class="include__body">
+						<div class="include__title section__title">"Your Complete Astrology Toolkit – From Beginner to
+							Mastery"</div>
+						<div class="include__info">
+							<div class="include__info-left">
+								<div class="include__info-preview">
+									<picture><source srcset="img/what__prev.webp" type="image/webp"><img src="img/what__prev.png" alt=""></picture>
+								</div>
+								<div class="include__info-buttons">
+									<div class="include__info-buttons-new">
+										<a href="./services.html"
+											class="include__info-buttons-new-link button__style button__text">
+											Start Your Astrology Journey
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="include__info-right">
+								<div class="include__info-list">
+									<div class="include__info-item gap20">
+										<div class="include__info-item-photo">
+											<img src="img/what1__hm.svg" alt="">
+										</div>
+										<div class="include__info-item-text">
+											<div class="include__info-item-text-title item__title">Astro Starter Bundle
+											</div>
+											<div class="include__info-item-text-descr item__text">
+												A simple, guided introduction to astrology with mini video lessons and a
+												personalized monthly horoscope
+											</div>
+											<a href="./main.html" class="include__info-item-link">learn more ></a>
+										</div>
+									</div>
+									<div class="include__info-item gap20">
+										<div class="include__info-item-photo">
+											<img src="img/what2__hm.svg" alt="">
+										</div>
+										<div class="include__info-item-text">
+											<div class="include__info-item-text-title item__title">Astrology
+												Compatibility Guide
+											</div>
+											<div class="include__info-item-text-descr item__text">
+												Decode love, friendships, and business dynamics through zodiac
+												compatibility insights
+											</div>
+											<a href="./match.html" class="include__info-item-link">learn more ></a>
+										</div>
+									</div>
+									<div class="include__info-item gap20">
+										<div class="include__info-item-photo">
+											<img src="img/what3__hm.svg" alt="">
+										</div>
+										<div class="include__info-item-text">
+											<div class="include__info-item-text-title item__title">Personal Astro
+												Roadmap
+											</div>
+											<div class="include__info-item-text-descr item__text">
+												Gain a 3, 6, or 12-month forecast revealing key upcoming events and life
+												shifts
+											</div>
+											<a href="./forecast.html" class="include__info-item-link">learn more ></a>
+										</div>
+									</div>
+									<div class="include__info-item gap20">
+										<div class="include__info-item-photo">
+											<img src="img/what4__hm.svg" alt="">
+										</div>
+										<div class="include__info-item-text">
+											<div class="include__info-item-text-title item__title">Master Astrology
+												Blueprint
+											</div>
+											<div class="include__info-item-text-descr item__text">
+												The ultimate 14-video structured course taking you from a beginner to an
+												expert in astrology
+											</div>
+											<a href="./services.html" class="include__info-item-link">learn more ></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section> -->
+			<section id="feedback" class="feedback">
+				<div class="feedback__container">
+					<div class="feedback__body">
+						<div class="feedback__title section__title">Feedback from those who have already completed the
+							course</div>
+						<div class="feedback__suptitle section__suptitle">I took life into my own hands and structured
+							all the approaches to astrology</div>
+						<!-- Оболочка слайдера -->
+						<div class="feedback__slider swiper">
+							<!-- Двигающееся часть слайдера -->
+							<div class="feedback__wrapper swiper-wrapper">
+								<!-- Слайд -->
+								<div class="feedback__slide swiper-slide">
+									<div class="feedback__slide-photo">
+										<div class="feedback__slide-prod">course: <span>Cosmic Forecast</span></div>
+										<img src="img/rev.png" alt="">
+									</div>
+									<div class="feedback__slide-descr">
+										<div class="feedback__slide-title item__title">Anastasia Baseline</div>
+										<div class="feedback__slide-text item__text">Thank you, Anna! You are working
+											miracles.
+											I am very grateful for each of your advice and predictions; my life is
+											improving. I had quite a
+											difficult relationship
+											with my mother, and now I have understood the main problem and started
+											working on it. With the right
+											approach, even
+											incompatible signs can become compatible.
+											It's always a pleasure to talk to you.
+										</div>
+										<div class="feedback__slide-rating">
+											Estimates on resources
+											<div class="feedback__slide-list">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="feedback__slide swiper-slide">
+									<div class="feedback__slide-photo">
+										<div class="feedback__slide-prod">course: <span>Astrology Compatibility
+												Guide</span></div>
+										<img src="img/rev2.png" alt="">
+									</div>
+									<div class="feedback__slide-descr">
+										<div class="feedback__slide-title item__title">Evelyn Williams</div>
+										<div class="feedback__slide-text item__text">You've shown me an amazing way to
+											live! And you know what?
+											You were right—I'm already 2 months pregnant.
+											Oh my God, I'm so happy, Anna! Your contribution to my happiness is
+											priceless. I especially
+											recommend the Astrology
+											Compatibility Guide course to everyone!
+											Now I want the whole course! And I'll be getting it in the coming days!
+										</div>
+										<div class="feedback__slide-rating">
+											Estimates on resources
+											<div class="feedback__slide-list">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="feedback__slide swiper-slide">
+									<div class="feedback__slide-photo">
+										<div class="feedback__slide-prod">course: <span>Personal Astro Roadmap</span>
+										</div>
+										<img src="img/rev3.png" alt="">
+									</div>
+									<div class="feedback__slide-descr">
+										<div class="feedback__slide-title item__title">Lizzie Matthews</div>
+										<div class="feedback__slide-text item__text">7 years of marriage, 2 kids, and I
+											almost gave up.
+											It turns out life can be completely different. I read your posts every day
+											on Telegram and Facebook,
+											and every piece of
+											advice you give feels like wisdom from the universe.
+											My relationship with my husband has improved, and I've started to understand
+											what I truly want from
+											life. All of this
+											happened after taking your courses—it's a miracle! Your work is incredible.
+										</div>
+										<div class="feedback__slide-rating">
+											Estimates on resources
+											<div class="feedback__slide-list">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="feedback__slide swiper-slide">
+									<div class="feedback__slide-photo">
+										<div class="feedback__slide-prod">course: <span>Cosmic Forecast</span></div>
+										<img src="img/rev.png" alt="">
+									</div>
+									<div class="feedback__slide-descr">
+										<div class="feedback__slide-title item__title">Anastasia Baseline</div>
+										<div class="feedback__slide-text item__text">Thank you, Anna! You are working
+											miracles.
+											I am very grateful for each of your advice and predictions; my life is
+											improving. I had quite a
+											difficult relationship
+											with my mother, and now I have understood the main problem and started
+											working on it. With the right
+											approach, even
+											incompatible signs can become compatible.
+											It's always a pleasure to talk to you.
+										</div>
+										<div class="feedback__slide-rating">
+											Estimates on resources
+											<div class="feedback__slide-list">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="feedback__slide swiper-slide">
+									<div class="feedback__slide-photo">
+										<div class="feedback__slide-prod">course: <span>Astrology Compatibility
+												Guide</span></div>
+										<img src="img/rev2.png" alt="">
+									</div>
+									<div class="feedback__slide-descr">
+										<div class="feedback__slide-title item__title">Evelyn Williams</div>
+										<div class="feedback__slide-text item__text">You've shown me an amazing way to
+											live! And you know what?
+											You were right—I'm already 2 months pregnant.
+											Oh my God, I'm so happy, Anna! Your contribution to my happiness is
+											priceless. I especially
+											recommend the Astrology
+											Compatibility Guide course to everyone!
+											Now I want the whole course! And I'll be getting it in the coming days!
+										</div>
+										<div class="feedback__slide-rating">
+											Estimates on resources
+											<div class="feedback__slide-list">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+												<img src="img/rating.svg" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!-- Если нужна пагинация -->
+							<div class="swiper__nav">
+								<button type="button" class="swiper-button-prev"></button>
+								<div class="swiper-pagination"></div>
+								<button type="button" class="swiper-button-next"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="offer" class="join">
+				<div class="join__container">
+					<div class="join__body">
+						<div class="join__title section__title">The Fastest & Easiest Way to Understand Astrology!</div>
+						<div class="join__suptitle section__suptitle">Astrology is more than just daily horoscopes. Your
+							zodiac sign holds
+							deep insights about your personality, strengths,
+							relationships, and life path.</div>
+						<div class="include__info-timer-container join__timer">
+							<div data-timer="hours" class="include__info-timer-left include__info-timer-hours">
+								13
+								<span>hours</span>
+							</div>
+							<div data-timer="minutes" class="include__info-timer-left include__info-timer-minutes">
+								09
+								<span>minutes</span>
+							</div>
+							<div data-timer="seconds" class="include__info-timer-left include__info-timer-seconds">
+								51
+								<span>seconds</span>
+							</div>
+						</div>
+						<div class="join__suptitle join__suptitle-migra section__suptitle">With this Mini-Zodiac Sign
+							Course, you will:
+						</div>
+
+						<div class="join__adv">
+							<div class="join__adv-list">
+								<div class="join__adv-item">
+									<div class="join__adv-item-photo">
+										<img src="img/join1__hm.svg" alt="">
+									</div>
+									<div class="join__adv-item-descr">
+										<div class="join__adv-item-title item__title">Zodiac sign's</div>
+										<div class="join__adv-item-text item__text">Understand your zodiac sign's hidden
+											traits</div>
+									</div>
+								</div>
+								<div class="join__adv-item">
+									<div class="join__adv-item-photo">
+										<img src="img/join2__hm.svg" alt="">
+									</div>
+									<div class="join__adv-item-descr">
+										<div class="join__adv-item-title item__title">Influences love
+										</div>
+										<div class="join__adv-item-text item__text">Learn how your sign influences love,
+											career, and destiny</div>
+									</div>
+								</div>
+								<div class="join__adv-item">
+									<div class="join__adv-item-photo">
+										<img src="img/join3__hm.svg" alt="">
+									</div>
+									<div class="join__adv-item-descr">
+										<div class="join__adv-item-title item__title">Video lessons</div>
+										<div class="join__adv-item-text item__text">Get quick, easy-to-follow video
+											lessons</div>
+									</div>
+								</div>
+								<div class="join__adv-item">
+									<div class="join__adv-item-photo">
+										<img src="img/join4__hm.svg" alt="">
+									</div>
+									<div class="join__adv-item-descr">
+										<div class="join__adv-item-title item__title">Gain clarity</div>
+										<div class="join__adv-item-text item__text">Gain clarity in just minutes no
+											complex charts needed!</div>
+									</div>
+								</div>
+							</div>
+							<div class="join__adv-price">
+								<div class="join__adv-price-photo">
+									<img src="img/join__prev.png" alt="">
+								</div>
+								<div class="join__adv-descr">
+									<div class="join__adv-price-container">
+										<div class="join__adv-price-old join__adv-price-current">
+											<span>old price</span>
+											<div class="join__adv-price-money">$29</div>
+										</div>
+										<div class="join__adv-price-new join__adv-price-current">
+											<span>new price</span>
+											$14.99
+										</div>
+									</div>
+									<div class="join__adv-price-descr">Discounts up to 50% for early birds and the ones
+										who join my Telegram group</div>
+									<a href="./services.html" class="join__adv-link button__style button__text">JOIN MY
+										TELEGRAM GROUP</a>
+									<div class="include__info-buttons-new-limit small__text">*LIMITED OFFER</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="outro">
+				<div class="outro__container">
+					<div class="outro__body">
+						<div class="outro__social">
+							<div class="outro__social-photo">
+								<img src="img/anna.png" alt="">
+							</div>
+							<div class="outro__social-title item__title">Anna Astrology</div>
+							<div class="outro__social-list">
+								<a href="https://t.me/anna_natalis" class="outro__social-list-item">
+									<div class="outro__social-list-item-photo">
+										<img src="img/tg.svg" alt="">
+									</div>
+									<div class="outro__social-list-item-info">
+										<div class="outro__social-list-item-title">telegram</div>
+										<div class="outro__social-list-item-descr">4 982 subs</div>
+									</div>
+								</a>
+								<!-- <a href="https://www.instagram.com/annavonko" class="outro__social-list-item">
+            <div class="outro__social-list-item-photo">
+                <img src="img/inst.svg" alt="">
+            </div>
+            <div class="outro__social-list-item-info">
+                <div class="outro__social-list-item-title">instagram</div>
+                <div class="outro__social-list-item-descr">20 982 subs</div>
+            </div>
+        </a>
+        <a href="#" class="outro__social-list-item">
+            <div class="outro__social-list-item-photo">
+                <img src="img/fb.svg" alt="">
+            </div>
+            <div class="outro__social-list-item-info">
+                <div class="outro__social-list-item-title">facebook</div>
+                <div class="outro__social-list-item-descr">8 982 subs</div>
+            </div>
+        </a> -->
+							</div>
+						</div>
+						<div class="outro__info">
+							<div class="outro__info-title section__title">Astrology shouldn't be complicated!</div>
+							<div class="outro__info-descr section__suptitle">The Astro Starter Bundle gives you a
+								simple, direct way to
+								understand yourself through the stars. Whether you're just
+								curious or want real guidance, this is your perfect first step.
+								<span></span>
+								💫 Take the first step toward self-discovery! Grab your Astro Starter Bundle now before
+								the discount expires!
+							</div>
+							<div class="outro__info-link-container">
+								<a href="./services.html" class="outro__info-link button__style button__text">
+									get instant access
+								</a>
+								<div class="outro__info-link-limit small__text">*LIMITED OFFER</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="faq" class="faq">
+				<div class="faq__container">
+					<div class="faq__body">
+						<div class="faq__title section__title">FAQ</div>
+						<div class="faq__suptitle section__suptitle">Answers to your questions</div>
+						<div data-spollers class="faq__spollers spollers">
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">How can
+									astrology help me in real life?</button>
+								<div class="faq__spollers-body spollers__descr">Astrology helps you understand your
+									strengths, challenges, and opportunities by analyzing planetary influences. It can
+									guide you in career decisions, relationships, personal growth, and financial
+									choices, giving you clarity about what lies
+									ahead.
+								</div>
+							</div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">How
+									accurate are astrology readings?</button>
+								<div class="faq__spollers-body spollers__descr">The accuracy of an astrology reading
+									depends on precise birth details (date, time, and location). The more accurate the
+									information you provide, the more detailed and insightful the reading will be.
+								</div>
+							</div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">What if I
+									don't know my exact birth time?</button>
+								<div class="faq__spollers-body spollers__descr">If you don't know your exact birth time,
+									we can use rectification techniques to estimate it based on major life events.
+									Alternatively, we can provide a generalized reading based on what is known.
+								</div>
+							</div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">Can
+									astrology predict my future?</button>
+								<div class="faq__spollers-body spollers__descr">Astrology does not predict exact events,
+									but it reveals cycles, tendencies, and planetary influences that help you
+									prepare for opportunities and challenges ahead. It's a tool for awareness and
+									decision-making, not fortune-telling.
+								</div>
+							</div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">How is
+									this different from free astrology apps and horoscopes?</button>
+								<div class="faq__spollers-body spollers__descr">Unlike generic app-based horoscopes, our
+									services provide deep, personalized readings based on your unique birth chart.
+									Free horoscopes are often broad and apply to millions of people, while personalized
+									astrology is tailored specifically
+									to you.
+								</div>
+							</div>
+							<div class="faq__spollers-gap"></div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">Why is
+									everything (groups, payments, consultations) happening on Telegram?</button>
+								<div class="faq__spollers-body spollers__descr">We use Telegram because it’s a one-stop
+									shop that ensures privacy, convenience, and global accessibility. Telegram
+									allows us to create exclusive groups, deliver content securely, and offer a smooth
+									payment process. Clients can choose
+									between bank cards and cryptocurrency payments, making it accessible worldwide.
+									Additionally, Telegram prioritizes user
+									security with encrypted chats and private communities, ensuring a safe and
+									trustworthy environment.</div>
+							</div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">What
+									payment methods do you accept?</button>
+								<div class="faq__spollers-body spollers__descr">We accept bank card payments and
+									cryptocurrency, providing flexibility for clients worldwide. Payments are processed
+									securely, and we never store sensitive financial information.</div>
+							</div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">How do I
+									receive my astrology reports and courses?</button>
+								<div class="faq__spollers-body spollers__descr">After payment, you'll instantly receive
+									access to your selected service via Telegram or email. For courses, you'll get
+									access to a private learning group or direct file downloads.</div>
+							</div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">Can I get
+									a refund if I'm not satisfied?</button>
+								<div class="faq__spollers-body spollers__descr">Due to the personalized nature of
+									astrology readings and consultations, refunds are generally not available. However,
+									if
+									there's any issue with your purchase, we're happy to discuss solutions to ensure
+									your satisfaction.</div>
+							</div>
+							<div class="faq__spollers-item spollers__item">
+								<button type="button" data-spoller class="faq__spollers-title spollers__title">How do I
+									join the private Telegram group after purchase?</button>
+								<div class="faq__spollers-body spollers__descr">Once your payment is confirmed, you'll
+									receive a private invitation link to join the exclusive Telegram group where all
+									insights, updates, and additional content will be shared.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<img src="img/faq.png" alt="">
+			</section>
+			<section class="outro">
+				<div class="lost__container">
+					<div class="lost__body">
+						<div class="lost__top">
+							<div class="lost__img">
+								<img src="img/lost__prev.png" alt="">
+							</div>
+							<div class="outro__info">
+								<div class="outro__info-title section__title">Unlock the Secrets of Your Destiny with
+									Astrology</div>
+								<div class="outro__info-descr section__suptitle">Want to know if your partner is your
+									soulmate? Wondering which zodiac signs make the best friends or business partners?
+									<span></span>
+									This Astrology Compatibility Guide gives you deep insights into love, friendships,
+									and career relationships using the
+									power of the stars
+									<span></span>
+									🔮 Understand romantic astrology & soulmate connections
+									<br>
+									📖 Learn how planetary influences shape compatibility
+									<br>
+									💼 Discover the best zodiac pairings for business & leadership
+									<br>
+									✨ Uncover friendship dynamics & lifelong bonds
+									<span></span>
+									<span class="outro__info-descr-bold">Get all the answers in this exclusive
+										guide—available now!</span>
+								</div>
+								<div class="outro__info-link-container">
+									<a href="./services.html" class="outro__info-link button__style button__text">
+										Get My Compatibility Guide Now!
+									</a>
+									<div class="outro__info-link-limit small__text">*LIMITED OFFER</div>
+								</div>
+							</div>
+							<div class="outro__social">
+								<div class="outro__social-photo">
+									<img src="img/anna.png" alt="">
+								</div>
+								<div class="outro__social-title item__title">Anna Astrology</div>
+								<div class="outro__social-list">
+									<a href="https://t.me/anna_natalis" class="outro__social-list-item">
+										<div class="outro__social-list-item-photo">
+											<img src="img/tg.svg" alt="">
+										</div>
+										<div class="outro__social-list-item-info">
+											<div class="outro__social-list-item-title">telegram</div>
+											<div class="outro__social-list-item-descr">4 982 subs</div>
+										</div>
+									</a>
+									<!-- <a href="https://www.instagram.com/annavonko" class="outro__social-list-item">
+										<div class="outro__social-list-item-photo">
+											<img src="img/inst.svg" alt="">
+										</div>
+										<div class="outro__social-list-item-info">
+											<div class="outro__social-list-item-title">instagram</div>
+											<div class="outro__social-list-item-descr">20 982 subs</div>
+										</div>
+									</a>
+									<a href="#" class="outro__social-list-item">
+										<div class="outro__social-list-item-photo">
+											<img src="img/fb.svg" alt="">
+										</div>
+										<div class="outro__social-list-item-info">
+											<div class="outro__social-list-item-title">facebook</div>
+											<div class="outro__social-list-item-descr">8 982 subs</div>
+										</div>
+									</a> -->
+								</div>
+							</div>
+						</div>
+						<div data-da=".lost__top, 990,0" class="lost__bottom">
+							<div class="lost__bottom-row">
+								<div class="lost__bottom-item">
+									<img src="img/lost1.png" alt="">
+								</div>
+								<div class="lost__bottom-item">
+									<img src="img/lost2.png" alt="">
+								</div>
+								<div class="lost__bottom-item">
+									<img src="img/lost3.png" alt="">
+								</div>
+							</div>
+							<div class="lost__bottom-row">
+								<div class="lost__bottom-item">
+									<img src="img/lost4.png" alt="">
+								</div>
+								<div class="lost__bottom-item">
+									<img src="img/lost5.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="contact__menu">
+				<div class="contact__menu-list">
+					<div class="contact__menu-item contact__menu-item-tg">
+						<div class="contact__menu-item-img">
+							<img src="img/tg__menu.svg" alt="">
+						</div>
+						<div class="contact__menu-item-text">telegram</div>
+					</div>
+					<div class="contact__menu-item contact__menu-item-inst">
+						<div class="contact__menu-item-img">
+							<img src="img/inst__menu.svg" alt="">
+						</div>
+						<div class="contact__menu-item-text">instagram</div>
+					</div>
+					<div class="contact__menu-item contact__menu-item-fb">
+						<div class="contact__menu-item-img">
+							<img src="img/fb__menu.svg" alt="">
+						</div>
+						<div class="contact__menu-item-text">facebook</div>
+					</div>
+				</div>
+				<div class="contact__menu-button"> <span>contact me</span> <img src="img/msg.svg" alt=""></div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__body">
+					<nav class="footer__nav">
+						<div class="footer__nav-row">
+							<a href="#services" class="footer__nav-link nav__link">my services</a>
+							<a href="#feedback" class="footer__nav-link nav__link">feedback</a>
+							<a href="#offer" class="footer__nav-link nav__link">special offer</a>
+							<a href="#faq" class="footer__nav-link nav__link">faq</a>
+						</div>
+						<div class="footer__nav-row footer__nav-policy">
+							<a href="#" class="footer__nav-link nav__link">PUBLIC OFFER AGREEMENT</a>
+							<a href="#" class="footer__nav-link nav__link">PRIVATE POLICY</a>
+						</div>
+					</nav>
+					<div class="footer__copy">
+						<div class="footer__copy-logo item__title"> <img src="img/logo.svg" alt="">Anna Astrology</div>
+						<div class="footer__copy-copy item__text"><img src="img/copy.svg" alt="">All rights reserved
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/app.min.js?_v=20250221194834"></script>
+</body>
+
+</html>
