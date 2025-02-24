@@ -38,117 +38,24 @@
 			<section class="intro">
 				<div class="intro__container">
 					<div class="intro__body">
-						<div class="intro__title"><img src="img/star.svg" alt="">You deserve better, you just have to
-							listen to the stars</div>
-						<div class="intro__suptitle section__suptitle">Learn to influence your destiny and life.
-							Literally from the first lesson you will be able to understand what fate has
-							given you and how you can change it!</div>
-						<div class="intro__preview">
-<!-- 							<div class="intro__preview__controls">
-								<button class="intro__preview__controls-play" id="playPauseButton"
-									onclick="togglePlayPause()">
-									<svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-										viewBox="0 0 24 24">
-										<path d="M8 5v14l11-7z" />
-									</svg>
-									<svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-										viewBox="0 0 24 24">
-										<path d="M6 19h4V5H6zm8-14v14h4V5z" />
-									</svg>
-								</button>
+						<div class="intro__info-upper">
+							<div class="intro__img">
+								<img src="img/star.png" alt="">
 							</div>
-							<button class="intro__preview__controls-sound" onclick="toggleSound()"">
-								<img src=" img/off.svg" id="offIcon" alt="">
-								<img src="img/on.svg" style="display: none;" id='onIcon' alt="">
-							</button>  -->
+							<div class="intro__info">
+								<div class="intro__title intro__left">You deserve better, you just have to
+									listen to the stars</div>
+								<div class="intro__suptitle section__suptitle intro__left">Learn to influence your
+									destiny and life.
+									Literally from the first lesson you will be able to understand what fate has
+									given you and how you can change it!</div>
+							</div>
+						</div>
+						<div class="intro__preview">
 							<video id="myVideo" autoplay muted controls playsinline>
 								<source src="img/preview.mp4" type="video/mp4">
 							</video>
 						</div>
-						<script>
-							var video = document.getElementById("myVideo");
-							var playPauseButton = document.getElementById("playPauseButton");
-							var playIcon = document.getElementById("playIcon");
-							var pauseIcon = document.getElementById("pauseIcon");
-							var offIcon = document.getElementById("offIcon");
-							var onIcon = document.getElementById("onIcon");
-							const videoContainer = document.querySelector('.intro__preview')
-
-							// Функция для воспроизведения/паузы
-							function togglePlayPause() {
-								if (video.paused || video.ended) {
-									video.play();
-									playIcon.style.opacity = "0"; // Плавное скрытие иконки Play
-									playIcon.style.transform = "scale(0.8)"; // Уменьшение иконки Play
-
-									pauseIcon.style.opacity = "1"; // Плавное появление иконки Pause
-									pauseIcon.style.visibility = "visible"; // Сделать иконку Pause видимой
-									pauseIcon.style.transform = "scale(1)"; // Восстановление размера иконки Pause
-									pauseIcon.style.display = "block"; // Восстановление размера иконки Pause
-								} else {
-									video.pause();
-									playIcon.style.opacity = "1"; // Плавное появление иконки Play
-									playIcon.style.transform = "scale(1)"; // Восстановление размера иконки Play
-
-									pauseIcon.style.opacity = "0"; // Плавное скрытие иконки Pause
-									pauseIcon.style.visibility = "hidden"; // Скрыть иконку Pause
-									pauseIcon.style.transform = "scale(0.8)"; // Уменьшение иконки Pause
-								}
-							}
-
-							function toggleSound() {
-								if (video.muted) {
-									video.muted = false;
-									offIcon.style.opacity = "0"; // Плавное скрытие иконки Play
-									offIcon.style.transform = "scale(0.8)"; // Уменьшение иконки Play
-									offIcon.style.display = "none"; // Уменьшение иконки Play
-
-									onIcon.style.opacity = "1"; // Плавное появление иконки Pause
-									onIcon.style.visibility = "visible"; // Сделать иконку Pause видимой
-									onIcon.style.transform = "scale(1)"; // Восстановление размера иконки Pause
-									onIcon.style.display = "block"; // Восстановление размера иконки Pause
-								} else {
-									video.muted = true;
-									offIcon.style.opacity = "1"; // Плавное появление иконки Play
-									offIcon.style.transform = "scale(1)"; // Восстановление размера иконки Play
-									offIcon.style.display = "block"; // Уменьшение иконки Play
-
-									onIcon.style.opacity = "0"; // Плавное скрытие иконки Pause
-									onIcon.style.visibility = "hidden"; // Скрыть иконку Pause
-									onIcon.style.transform = "scale(0.8)"; // Уменьшение иконки Pause
-									onIcon.style.display = "none"; // Восстановление размера иконки Pause
-								}
-							}
-							videoContainer.addEventListener('click', function () {
-								if (window.innerWidth <= 768) { // Проверка для мобильных устройств
-									this.classList.add('clicked'); // Переключаем класс для показа иконки
-
-									// Убираем класс 'clicked' через 3 секунды
-									setTimeout(function () {
-										videoContainer.classList.remove('clicked');
-									}, 3000); // 3000 миллисекунд = 3 секунды
-								}
-							});
-							// document.addEventListener("DOMContentLoaded", function () {
-							// 	setTimeout(function () {
-							// 		video.muted = false; // Убираем muted
-							// 	}, 3000); // 1000 миллисекунд = 1 секунда
-							// })
-						</script>
-						<!-- <div class="intro__adv">
-							<div class="intro__adv-item intro__adv-1">
-								<div class="intro__adv-title">2 mm</div>
-								<div class="intro__adv-text">followers on all social networks</div>
-							</div>
-							<div class="intro__adv-item intro__adv-2">
-								<div class="intro__adv-title">7 years</div>
-								<div class="intro__adv-text">working with the stars and science</div>
-							</div>
-							<div class="intro__adv-item intro__adv-3">
-								<div class="intro__adv-title">8.000</div>
-								<div class="intro__adv-text">Women who have explored and changed their lives</div>
-							</div>
-						</div> -->
 						<a href="./services.html" class="intro__link button__style button__text">reveal your destiny</a>
 					</div>
 				</div>
@@ -269,133 +176,6 @@
 					</div>
 				</div>
 			</section>
-			<!-- <section class="need">
-				<div class="need__container">
-					<div class="need__body">
-						<div class="need__title section__title">I Will Teach You</div>
-						<div class="need__list">
-							<div class="need__list-item">
-								<div class="need__list-item-photo">
-									<img src="img/why1__hm.svg" alt="">
-								</div>
-								<div class="need__list-item-title item__title">Inner Clarity</div>
-								<div class="need__list-item-text item__text">See how astrology can explain your
-									connections</div>
-							</div>
-							<div class="need__list-item">
-								<div class="need__list-item-photo">
-									<img src="img/why2__hm.svg" alt="">
-								</div>
-								<div class="need__list-item-title item__title">Cosmic Alignment</div>
-								<div class="need__list-item-text item__text">Learn which zodiac signs align best with
-									yours</div>
-							</div>
-							<div class="need__list-item">
-								<div class="need__list-item-photo">
-									<img src="img/why3__hm.svg" alt="">
-								</div>
-								<div class="need__list-item-title item__title">Astrological Wisdom</div>
-								<div class="need__list-item-text item__text">Discover ways to strengthen relationships
-								</div>
-							</div>
-							<div class="need__list-item">
-								<div class="need__list-item-photo">
-									<img src="img/why4__hm.svg" alt="">
-								</div>
-								<div class="need__list-item-title item__title">Mastering Planetary Influence</div>
-								<div class="need__list-item-text item__text">Learn which zodiac signs align best with
-									yours</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="include">
-				<div class="include__container">
-					<div class="include__body">
-						<div class="include__title section__title">"Your Complete Astrology Toolkit – From Beginner to
-							Mastery"</div>
-						<div class="include__info">
-							<div class="include__info-left">
-								<div class="include__info-preview">
-									<picture><source srcset="img/what__prev.webp" type="image/webp"><img src="img/what__prev.png" alt=""></picture>
-								</div>
-								<div class="include__info-buttons">
-									<div class="include__info-buttons-new">
-										<a href="./services.html"
-											class="include__info-buttons-new-link button__style button__text">
-											Start Your Astrology Journey
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="include__info-right">
-								<div class="include__info-list">
-									<div class="include__info-item gap20">
-										<div class="include__info-item-photo">
-											<img src="img/what1__hm.svg" alt="">
-										</div>
-										<div class="include__info-item-text">
-											<div class="include__info-item-text-title item__title">Astro Starter Bundle
-											</div>
-											<div class="include__info-item-text-descr item__text">
-												A simple, guided introduction to astrology with mini video lessons and a
-												personalized monthly horoscope
-											</div>
-											<a href="./main.html" class="include__info-item-link">learn more ></a>
-										</div>
-									</div>
-									<div class="include__info-item gap20">
-										<div class="include__info-item-photo">
-											<img src="img/what2__hm.svg" alt="">
-										</div>
-										<div class="include__info-item-text">
-											<div class="include__info-item-text-title item__title">Astrology
-												Compatibility Guide
-											</div>
-											<div class="include__info-item-text-descr item__text">
-												Decode love, friendships, and business dynamics through zodiac
-												compatibility insights
-											</div>
-											<a href="./match.html" class="include__info-item-link">learn more ></a>
-										</div>
-									</div>
-									<div class="include__info-item gap20">
-										<div class="include__info-item-photo">
-											<img src="img/what3__hm.svg" alt="">
-										</div>
-										<div class="include__info-item-text">
-											<div class="include__info-item-text-title item__title">Personal Astro
-												Roadmap
-											</div>
-											<div class="include__info-item-text-descr item__text">
-												Gain a 3, 6, or 12-month forecast revealing key upcoming events and life
-												shifts
-											</div>
-											<a href="./forecast.html" class="include__info-item-link">learn more ></a>
-										</div>
-									</div>
-									<div class="include__info-item gap20">
-										<div class="include__info-item-photo">
-											<img src="img/what4__hm.svg" alt="">
-										</div>
-										<div class="include__info-item-text">
-											<div class="include__info-item-text-title item__title">Master Astrology
-												Blueprint
-											</div>
-											<div class="include__info-item-text-descr item__text">
-												The ultimate 14-video structured course taking you from a beginner to an
-												expert in astrology
-											</div>
-											<a href="./services.html" class="include__info-item-link">learn more ></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section> -->
 			<section id="feedback" class="feedback">
 				<div class="feedback__container">
 					<div class="feedback__body">
@@ -414,7 +194,7 @@
 										<img src="img/rev.png" alt="">
 									</div>
 									<div class="feedback__slide-descr">
-										<div class="feedback__slide-title item__title">Anastasia Baseline</div>
+										<div class="feedback__slide-title item__title">Elsie Graham</div>
 										<div class="feedback__slide-text item__text">Thank you, Anna! You are working
 											miracles.
 											I am very grateful for each of your advice and predictions; my life is
@@ -504,7 +284,7 @@
 										<img src="img/rev.png" alt="">
 									</div>
 									<div class="feedback__slide-descr">
-										<div class="feedback__slide-title item__title">Anastasia Baseline</div>
+										<div class="feedback__slide-title item__title">Elsie Graham</div>
 										<div class="feedback__slide-text item__text">Thank you, Anna! You are working
 											miracles.
 											I am very grateful for each of your advice and predictions; my life is
@@ -683,24 +463,6 @@
 										<div class="outro__social-list-item-descr">4 982 subs</div>
 									</div>
 								</a>
-								<!-- <a href="https://www.instagram.com/annavonko" class="outro__social-list-item">
-            <div class="outro__social-list-item-photo">
-                <img src="img/inst.svg" alt="">
-            </div>
-            <div class="outro__social-list-item-info">
-                <div class="outro__social-list-item-title">instagram</div>
-                <div class="outro__social-list-item-descr">20 982 subs</div>
-            </div>
-        </a>
-        <a href="#" class="outro__social-list-item">
-            <div class="outro__social-list-item-photo">
-                <img src="img/fb.svg" alt="">
-            </div>
-            <div class="outro__social-list-item-info">
-                <div class="outro__social-list-item-title">facebook</div>
-                <div class="outro__social-list-item-descr">8 982 subs</div>
-            </div>
-        </a> -->
 							</div>
 						</div>
 						<div class="outro__info">
@@ -718,6 +480,83 @@
 									get instant access
 								</a>
 								<div class="outro__info-link-limit small__text">*LIMITED OFFER</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="outro">
+				<div class="lost__container">
+					<div class="lost__body">
+						<div class="lost__top">
+							<div class="lost__img">
+								<img src="img/lost__prev.png" alt="">
+							</div>
+							<div class="outro__info">
+								<div class="outro__info-title section__title">Unlock the Secrets of Your Destiny with
+									Astrology</div>
+								<div class="outro__info-descr section__suptitle">Want to know if your partner is your
+									soulmate? Wondering which zodiac signs make the best friends or business partners?
+									<span></span>
+									This Astrology Compatibility Guide gives you deep insights into love, friendships,
+									and career relationships using the
+									power of the stars
+									<span></span>
+									🔮 Understand romantic astrology & soulmate connections
+									<br>
+									📖 Learn how planetary influences shape compatibility
+									<br>
+									💼 Discover the best zodiac pairings for business & leadership
+									<br>
+									✨ Uncover friendship dynamics & lifelong bonds
+									<span></span>
+									<span class="outro__info-descr-bold">Get all the answers in this exclusive
+										guide—available now!</span>
+								</div>
+								<div class="outro__info-link-container">
+									<a href="./services.html" class="outro__info-link button__style button__text">
+										Get My Compatibility Guide Now!
+									</a>
+									<div class="outro__info-link-limit small__text">*LIMITED OFFER</div>
+								</div>
+							</div>
+							<div class="outro__social">
+								<div class="outro__social-photo">
+									<img src="img/anna.png" alt="">
+								</div>
+								<div class="outro__social-title item__title">Anna Astrology</div>
+								<div class="outro__social-list">
+									<a href="https://t.me/anna_natalis" class="outro__social-list-item">
+										<div class="outro__social-list-item-photo">
+											<img src="img/tg.svg" alt="">
+										</div>
+										<div class="outro__social-list-item-info">
+											<div class="outro__social-list-item-title">Telegram</div>
+											<div class="outro__social-list-item-descr">4 982 subs</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div data-da=".lost__top, 990,0" class="lost__bottom">
+							<div class="lost__bottom-row">
+								<div class="lost__bottom-item">
+									<img src="img/lost1.png" alt="">
+								</div>
+								<div class="lost__bottom-item">
+									<img src="img/lost2.png" alt="">
+								</div>
+								<div class="lost__bottom-item">
+									<img src="img/lost3.png" alt="">
+								</div>
+							</div>
+							<div class="lost__bottom-row">
+								<div class="lost__bottom-item">
+									<img src="img/lost4.png" alt="">
+								</div>
+								<div class="lost__bottom-item">
+									<img src="img/lost5.png" alt="">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -822,121 +661,19 @@
 				</div>
 				<img src="img/faq.png" alt="">
 			</section>
-			<section class="outro">
-				<div class="lost__container">
-					<div class="lost__body">
-						<div class="lost__top">
-							<div class="lost__img">
-								<img src="img/lost__prev.png" alt="">
-							</div>
-							<div class="outro__info">
-								<div class="outro__info-title section__title">Unlock the Secrets of Your Destiny with
-									Astrology</div>
-								<div class="outro__info-descr section__suptitle">Want to know if your partner is your
-									soulmate? Wondering which zodiac signs make the best friends or business partners?
-									<span></span>
-									This Astrology Compatibility Guide gives you deep insights into love, friendships,
-									and career relationships using the
-									power of the stars
-									<span></span>
-									🔮 Understand romantic astrology & soulmate connections
-									<br>
-									📖 Learn how planetary influences shape compatibility
-									<br>
-									💼 Discover the best zodiac pairings for business & leadership
-									<br>
-									✨ Uncover friendship dynamics & lifelong bonds
-									<span></span>
-									<span class="outro__info-descr-bold">Get all the answers in this exclusive
-										guide—available now!</span>
-								</div>
-								<div class="outro__info-link-container">
-									<a href="./services.html" class="outro__info-link button__style button__text">
-										Get My Compatibility Guide Now!
-									</a>
-									<div class="outro__info-link-limit small__text">*LIMITED OFFER</div>
-								</div>
-							</div>
-							<div class="outro__social">
-								<div class="outro__social-photo">
-									<img src="img/anna.png" alt="">
-								</div>
-								<div class="outro__social-title item__title">Anna Astrology</div>
-								<div class="outro__social-list">
-									<a href="https://t.me/anna_natalis" class="outro__social-list-item">
-										<div class="outro__social-list-item-photo">
-											<img src="img/tg.svg" alt="">
-										</div>
-										<div class="outro__social-list-item-info">
-											<div class="outro__social-list-item-title">telegram</div>
-											<div class="outro__social-list-item-descr">4 982 subs</div>
-										</div>
-									</a>
-									<!-- <a href="https://www.instagram.com/annavonko" class="outro__social-list-item">
-										<div class="outro__social-list-item-photo">
-											<img src="img/inst.svg" alt="">
-										</div>
-										<div class="outro__social-list-item-info">
-											<div class="outro__social-list-item-title">instagram</div>
-											<div class="outro__social-list-item-descr">20 982 subs</div>
-										</div>
-									</a>
-									<a href="#" class="outro__social-list-item">
-										<div class="outro__social-list-item-photo">
-											<img src="img/fb.svg" alt="">
-										</div>
-										<div class="outro__social-list-item-info">
-											<div class="outro__social-list-item-title">facebook</div>
-											<div class="outro__social-list-item-descr">8 982 subs</div>
-										</div>
-									</a> -->
-								</div>
-							</div>
-						</div>
-						<div data-da=".lost__top, 990,0" class="lost__bottom">
-							<div class="lost__bottom-row">
-								<div class="lost__bottom-item">
-									<img src="img/lost1.png" alt="">
-								</div>
-								<div class="lost__bottom-item">
-									<img src="img/lost2.png" alt="">
-								</div>
-								<div class="lost__bottom-item">
-									<img src="img/lost3.png" alt="">
-								</div>
-							</div>
-							<div class="lost__bottom-row">
-								<div class="lost__bottom-item">
-									<img src="img/lost4.png" alt="">
-								</div>
-								<div class="lost__bottom-item">
-									<img src="img/lost5.png" alt="">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
 			<div class="contact__menu">
 				<div class="contact__menu-list">
-					<div class="contact__menu-item contact__menu-item-tg">
+					<a href="#" class="contact__menu-item contact__menu-item-tg">
 						<div class="contact__menu-item-img">
-							<img src="img/tg__menu.svg" alt="">
+							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18"
+								fill="none">
+								<path
+									d="M19.368 0.737254C19.368 0.737254 21.3014 -0.0166314 21.1402 1.81424C21.0865 2.56813 20.6032 5.20673 20.2273 8.06074L18.9383 16.5151C18.9383 16.5151 18.831 17.7536 17.8642 17.969C16.8975 18.1844 15.4475 17.2151 15.179 16.9997C14.9641 16.8382 11.1511 14.4149 9.80847 13.2303C9.43252 12.9072 9.00288 12.261 9.86216 11.5071L15.5012 6.12219C16.1457 5.47599 16.7901 3.96822 14.1049 5.79909L6.58617 10.9148C6.58617 10.9148 5.72689 11.4532 4.11577 10.9686L0.624913 9.89162C0.624913 9.89162 -0.664012 9.08389 1.5379 8.27611C6.90843 5.7452 13.5142 3.16044 19.368 0.737254Z"
+									fill="white" />
+							</svg>
 						</div>
 						<div class="contact__menu-item-text">telegram</div>
-					</div>
-					<div class="contact__menu-item contact__menu-item-inst">
-						<div class="contact__menu-item-img">
-							<img src="img/inst__menu.svg" alt="">
-						</div>
-						<div class="contact__menu-item-text">instagram</div>
-					</div>
-					<div class="contact__menu-item contact__menu-item-fb">
-						<div class="contact__menu-item-img">
-							<img src="img/fb__menu.svg" alt="">
-						</div>
-						<div class="contact__menu-item-text">facebook</div>
-					</div>
+					</a>
 				</div>
 				<div class="contact__menu-button"> <span>contact me</span> <img src="img/msg.svg" alt=""></div>
 			</div>
@@ -965,16 +702,6 @@
 			</div>
 		</footer>
 	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
-				Text
-			</div>
-		</div>
-	</div>
-</div> -->
 	<script src="js/app.min.js?_v=20250221194834"></script>
 </body>
 
