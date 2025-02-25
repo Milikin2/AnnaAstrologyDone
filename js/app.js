@@ -3857,6 +3857,7 @@
         const links = document.querySelectorAll(".intro__services-link span");
         const parentContainer = document.querySelector(".intro__services-prev");
         const mainLink = document.querySelector(".intro__services-link");
+        // Секция Astrology Services, менять ссылки здесь
         const linksArray = {
             starter: "./main.html",
             guide: "./match.html",
