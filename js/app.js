@@ -3825,6 +3825,30 @@
             img.src = "img/close__menu.svg";
         }
     }));
+    window.addEventListener("load", function() {
+      const videoContainer = document.querySelector(".intro__preview");
+      if (videoContainer) {
+        const video = document.createElement("video");
+        video.setAttribute("controls", "");
+        video.setAttribute("autoplay", "");
+        video.setAttribute("muted", "");
+        video.setAttribute("playsinline", "");
+        video.setAttribute("poster", "img/video__preview.png");
+    
+        const sourceMP4 = document.createElement("source");
+        sourceMP4.setAttribute("src", "img/preview.mp4");
+        sourceMP4.setAttribute("type", "video/mp4");
+    
+        video.appendChild(sourceMP4);
+        videoContainer.appendChild(video);
+      }
+    
+    
+      videoContainer.addEventListener('click', (e) => {
+        const playIcon = document.querySelector(".intro__preview-play")
+        playIcon.style.display = "none"
+      })
+    });
     document.addEventListener("DOMContentLoaded", (function() {
         const buttons = document.querySelectorAll(".intro__services-button");
         const images = document.querySelectorAll(".intro__services-photo img");
